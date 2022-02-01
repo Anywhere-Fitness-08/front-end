@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import Register from './components/Register';
+import Login from './components/Login';
+import styled from 'styled-components';
+import { Route, Switch } from 'react-router-dom';
+import Header from './components/Header';
+
+const StyledApp = styled.div`
+  display: flex;
+  height: 95vh;
+  // justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledApp className="App">
+      <Header />
+      <Switch>
+        <Route path='/register'>
+          <Register className='registerComponent'/>
+        </Route>
+
+        <Route path='/'>
+          <Login />
+        </Route>
+      </Switch>
+      
+      {/* <Register /> */}
+    </StyledApp>
   );
 }
 
