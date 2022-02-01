@@ -24,9 +24,14 @@ const Login = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.post(' https://anywhere-fitness-008.herokuapp.com/api/auth/login')
+        console.log('form: ',form);
+        axios.post('https://anywhere-fitness-008.herokuapp.com/api/auth/login', form)
         .then(resp => {
             console.log(resp);
+        })
+        .catch(error => {
+            console.log('here comes an error');
+            console.log(error);
         })
     }
 
