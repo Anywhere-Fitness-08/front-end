@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import hero from "../images/hero.svg";
+import { useHistory } from "react-router-dom";
+
 //Login Styles go here.
 const StyledLogin = styled.div`
   border: black solid 1px;
@@ -10,6 +12,7 @@ const StyledLogin = styled.div`
 `;
 
 const Login = () => {
+  const { push } = useHistory();
   const [form, setForm] = useState({
     username: "",
     password: "",
@@ -54,7 +57,9 @@ const Login = () => {
           <button className="first-button">Login</button>
         </form>
         <h4 className="new">New Here?</h4>
-        <button className="second-button">Sign up here</button>
+        <button onClick={() => push("/register")} className="second-button">
+          Sign up here
+        </button>
       </div>
       <div className="svg">
         <img src={hero} alt="not worki" />
