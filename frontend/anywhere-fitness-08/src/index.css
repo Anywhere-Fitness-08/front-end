@@ -49,6 +49,11 @@ picture {
 .svg {
   width: 70%;
 }
+@media (max-width: 700px) {
+  .svg {
+    display: none;
+  }
+}
 .login-container {
   height: 100%;
 }
@@ -62,6 +67,12 @@ picture {
   border-radius: 10px;
   border: none;
 }
+.first-button:hover,
+.second-button:hover,
+.register-button:hover {
+  background-color: #4361ee;
+  border: 1px solid whitesmoke;
+}
 .second-button {
   padding: 1em 2em;
   width: 80%;
@@ -71,4 +82,20 @@ picture {
   font-family: "Poppins", sans-serif;
   border-radius: 10px;
   border: none;
+}
+.register-button {
+  padding: 1em 2em;
+  width: 80%;
+  margin: 0 auto;
+  background-color: #3f37c9;
+  color: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  border: none;
+}
+.register-container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  height: 90vh;
 }
