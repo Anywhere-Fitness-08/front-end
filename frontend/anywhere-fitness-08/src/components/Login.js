@@ -27,7 +27,8 @@ const Login = () => {
         console.log('form: ',form);
         axios.post('https://anywhere-fitness-008.herokuapp.com/api/auth/login', form)
         .then(resp => {
-            console.log(resp);
+            console.log(resp.data.token);
+            localStorage.setItem('token', resp.data.token);
         })
         .catch(error => {
             console.log('here comes an error');
