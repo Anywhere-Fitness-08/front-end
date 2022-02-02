@@ -5,6 +5,7 @@ import Logout from './components/Logout'
 import styled from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
+import NewClassForm from './components/NewClassForm';
 
 const StyledApp = styled.div`
   display: flex;
@@ -19,6 +20,10 @@ function App() {
     <StyledApp className="App">
       <Header />
       <Switch>
+
+        <Route path='/newclass'>
+          <NewClassForm />
+        </Route>
 
         <Route path='/logout'>
           <Logout/>

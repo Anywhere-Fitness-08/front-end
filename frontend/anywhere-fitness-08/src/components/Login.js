@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 //Login Styles go here.
 const StyledLogin = styled.div`
@@ -62,7 +63,7 @@ const Login = () => {
                 <button>Login</button>
             </form>
             <h4>New Here?</h4>
-            <button>Sign up here</button>
+            <Link to='/register'><button>Sign up here</button></Link>
         </StyledLogin>
     )
 }
