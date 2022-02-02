@@ -28,7 +28,9 @@ function App() {
         </Route>
 
         <Route path="/">
-          <Login />
+          <div className="login-container">
+            <Login />
+          </div>
         </Route>
       </Switch>
 

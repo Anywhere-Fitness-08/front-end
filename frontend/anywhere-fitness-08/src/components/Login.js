@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-
+import hero from "../images/hero.svg";
 //Login Styles go here.
 const StyledLogin = styled.div`
   border: black solid 1px;
@@ -36,24 +36,29 @@ const Login = () => {
 
   return (
     <div className="loginContainer">
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Username:
-            <input name="username" type="input" onChange={handleChange} />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password:
-            <input type="password" name="password" onChange={handleChange} />
-          </label>
-        </div>
-        <button>Login</button>
-      </form>
-      <h4>New Here?</h4>
-      <button>Sign up here</button>
+      <div className="login-wrapper">
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>
+              Username:
+              <input name="username" type="input" onChange={handleChange} />
+            </label>
+          </div>
+          <div>
+            <label>
+              Password:
+              <input type="password" name="password" onChange={handleChange} />
+            </label>
+          </div>
+          <button className="first-button">Login</button>
+        </form>
+        <h4 className="new">New Here?</h4>
+        <button className="second-button">Sign up here</button>
+      </div>
+      <div className="svg">
+        <img src={hero} alt="not worki" />
+      </div>
     </div>
   );
 };
