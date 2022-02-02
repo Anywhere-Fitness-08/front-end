@@ -1,13 +1,74 @@
 body {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  background-color: #4361ee;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+.app {
+  height: 100vh;
+  color: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+}
+.links-container {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+}
+.logo {
+  display: flex;
+  width: 40%;
+}
+.nav-items {
+  display: flex;
+  width: 60%;
+  justify-content: space-around;
+  align-items: center;
+}
+.links-wrapper {
+  background-color: #3f37c9;
+}
+.loginContainer {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.login-wrapper {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.svg {
+  width: 70%;
+}
+.login-container {
+  height: 100%;
+}
+.first-button {
+  margin-top: 1.5em;
+  padding: 1em 2em;
+  width: 80%;
+  background-color: #3f37c9;
+  color: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  border: none;
+}
+.second-button {
+  padding: 1em 2em;
+  width: 80%;
+  margin: 0 auto;
+  background-color: #3f37c9;
+  color: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  border: none;
 }
