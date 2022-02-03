@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import hero from "../images/hero.svg";
+import { useHistory } from "react-router-dom";
 //Login Styles go here.
 const StyledLogin = styled.div`
   border: black solid 1px;
@@ -10,6 +11,8 @@ const StyledLogin = styled.div`
 `;
 
 const Login = () => {
+
+    const { push } = useHistory();
   const [form, setForm] = useState({
     username: "",
     password: "",
@@ -21,12 +24,11 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("form: ", form);
     axios
       .post("https://anywhere-fitness-008.herokuapp.com/api/auth/login", form)
       .then((resp) => {
-        console.log(resp.data.token);
         localStorage.setItem("token", resp.data.token);
+        push('/classes');
       })
       .catch((error) => {
         console.log("here comes an error");
