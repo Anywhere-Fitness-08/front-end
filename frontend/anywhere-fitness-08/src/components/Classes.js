@@ -2,6 +2,7 @@ import React from "react";
 import Class from "./Class";
 import styled from "styled-components";
 import { v4 as uuid } from 'uuid';
+import { useHistory } from "react-router-dom";
 
 const dummyData = [{name:"Early Morning Workout",
 type:"Jog/Cardio",
@@ -40,12 +41,21 @@ const StyledClasses = styled.div`
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
+
+    h3{
+        border: black 1px solid;
+        padding: 20px 10px;
+
+        &:hover{
+            border: 2px solid black;
+        }
+    }
 `
 
 const Classes = () => {
 
 
-    
+    const { push } = useHistory();
 
 
     return (
@@ -53,6 +63,9 @@ const Classes = () => {
             
         <StyledClasses>
             <h1>Available Classes</h1>
+            <h3 onClick={() => {
+                push('/newclass');
+            }} >Add a new Class</h3>
             <div className="classList">
                 {dummyData.map(item => {
                     return <Class key={uuid()} item={item} />
