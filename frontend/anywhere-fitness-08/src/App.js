@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import NewClassForm from "./components/NewClassForm";
+import Classes from "./components/Classes";
 
 const StyledApp = styled.div`
   display: flex;
@@ -21,7 +22,11 @@ function App() {
       <Header />
       <Switch>
 
-      <Route path="/newclass">
+        <Route path="/classes">
+          <Classes />
+        </Route>
+
+        <Route path="/newclass">
           <NewClassForm />
         </Route>
 

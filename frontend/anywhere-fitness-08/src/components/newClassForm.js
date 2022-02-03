@@ -5,7 +5,13 @@ import axios from "axios";
 const StyledNewClassForm = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 40%;
+    border: 1px solid black;
+    margin-left: 30%;
+    margin-top: 4rem;
+
+    
 `
 
 const NewClassForm = () => {
@@ -40,6 +46,7 @@ const NewClassForm = () => {
 
     return (
         <StyledNewClassForm>
+            <h1>Create a New Class</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Name of class: 

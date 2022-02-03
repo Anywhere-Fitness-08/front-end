@@ -28,7 +28,6 @@ const Login = () => {
       .post("https://anywhere-fitness-008.herokuapp.com/api/auth/login", form)
       .then((resp) => {
         localStorage.setItem("token", resp.data.token);
-        push('/classes');
       })
       .catch((error) => {
         console.log("here comes an error");
