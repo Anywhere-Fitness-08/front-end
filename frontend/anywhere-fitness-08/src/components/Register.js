@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
+import * as Yup from 'yup';
 
 const StyledRegister = styled.div`
     border: black solid 1px;
@@ -12,6 +14,7 @@ const StyledRegister = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 3rem 25% ;
     
 
     button{
@@ -32,17 +35,36 @@ const Register = () => {
         email: '',
         username: '',
         password: '',
-        ofAge: false,
-        accountType: ''
+        role: 'user'
     });
 
+    // const [ form, setForm ] = useState({
+    //     username: '',
+    //     password: '',
+    //     role: 'user'
+    // });
+
     const handleChange = e => {
+        if(e.target.name)
         setForm({...form,
         [e.target.name]: e.target.value})
     }
 
     const handleSubmit = e => {
         e.preventDefault();
+        const newRegister = {
+            username: form.username,
+            password: form.password,
+            role: form.role
+        }
+        console.log('newRegister being sent: ', newRegister);
+        axios.post('https://anywhere-fitness-008.herokuapp.com/api/auth/register', newRegister)
+        .then(resp => {
+            console.log(resp);
+        })
+        .then(error => {
+            console.error(error);
+        })
     }
 
     return(
@@ -104,6 +126,7 @@ const Register = () => {
                         <input 
                             type='checkbox'
                             onChange={handleChange}
+                            name='ofAge'
                         />
                         Are you at least 18 years old?
                     </label>

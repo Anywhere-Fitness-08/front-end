@@ -3,11 +3,13 @@ import styled from "styled-components";
 import axios from "axios";
 import hero from "../images/hero.svg";
 import { useHistory } from "react-router-dom";
+import * as Yup from 'yup';
+
 //Login Styles go here.
 const StyledLogin = styled.div`
-  border: black solid 1px;
-  width: 30%;
-  padding: 100px 0;
+    border: black solid 1px;
+    width: 30%;
+    padding: 100px 0;
 `;
 
 const Login = () => {
@@ -28,6 +30,7 @@ const Login = () => {
       .post("https://anywhere-fitness-008.herokuapp.com/api/auth/login", form)
       .then((resp) => {
         localStorage.setItem("token", resp.data.token);
+        push('/classes');
       })
       .catch((error) => {
         console.log("here comes an error");
@@ -55,7 +58,7 @@ const Login = () => {
           <button className="first-button">Login</button>
         </form>
         <h4 className="new">New Here?</h4>
-        <button className="second-button">Sign up here</button>
+        <button className="second-button" onClick={() => {push('/register')}}>Sign up here</button>
       </div>
       <div className="svg">
         <img src={hero} alt="not worki" />
