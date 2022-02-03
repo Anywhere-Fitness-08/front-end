@@ -1,7 +1,7 @@
 import React from "react";
 import Class from "./Class";
 import styled from "styled-components";
-import * as Yup from 'yup';
+import { v4 as uuid } from 'uuid';
 
 const dummyData = [{name:"Early Morning Workout",
 type:"Jog/Cardio",
@@ -55,7 +55,7 @@ const Classes = () => {
             <h1>Available Classes</h1>
             <div className="classList">
                 {dummyData.map(item => {
-                    return <Class item={item} />
+                    return <Class key={uuid()} item={item} />
                 })}
             </div>
         </StyledClasses>
