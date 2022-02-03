@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import * as Yup from 'yup';
+import { axiosWithAuth } from "./axiosAuth";
+import { useHistory } from "react-router-dom";
 
 const StyledNewClassForm = styled.div`
     display: flex;
@@ -11,11 +13,11 @@ const StyledNewClassForm = styled.div`
     border: 1px solid black;
     margin-left: 30%;
     margin-top: 4rem;
-
-    
 `
 
 const NewClassForm = () => {
+
+    const { push } = useHistory();
 
     const [ form, setForm ] = useState({
         name: '',
@@ -30,14 +32,30 @@ const NewClassForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const token = localStorage.getItem('token');
 
-        axios.get('https://anywhere-fitness-008.herokuapp.com/api/classes', form)
-        .then(resp => {
-            console.log(resp);
-        })
-        .catch(error => {
-            console.error(error);
-        })
+        push('/classes');
+
+    
+
+        // axiosWithAuth().post('https://anywhere-fitness-008.herokuapp.com/api/classes', form)
+        // .then(resp => {
+        //     console.log(resp);
+        // })
+        // .catch(error => {
+        //     console.log('here comes an error');
+        //     console.log('error: ', error);
+        // })
+        // axios.post('https://anywhere-fitness-008.herokuapp.com/api/classes', {
+        //     headers: {
+        //         authorization: token
+        // }}, form)
+        // .then(resp => {
+        //     console.log(resp);
+        // })
+        // .catch(error => {
+        //     console.error(error);
+        // })
     }
 
     const handleChange = e => {
