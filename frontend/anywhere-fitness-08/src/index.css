@@ -72,3 +72,8 @@ picture {
   border-radius: 10px;
   border: none;
 }
+.errorMessage{
+  margin-top: 10px;
+  color: red;
+  font-size: .8rem;
+}
