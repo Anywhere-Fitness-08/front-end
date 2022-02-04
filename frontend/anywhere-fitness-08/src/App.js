@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import NewClassForm from "./components/NewClassForm";
 import Classes from "./components/Classes";
+import PrivateRoute from './components/PrivateRoute';
 
 const StyledApp = styled.div`
   display: flex;
@@ -22,17 +23,20 @@ function App() {
       <Header />
       <Switch>
 
-        <Route path="/classes">
+        <PrivateRoute path='/classes' component={Classes} />
+        {/* <Route path="/classes">
           <Classes />
-        </Route>
+        </Route> */}
 
-        <Route path="/newclass">
+        <PrivateRoute path='/newclass' component={NewClassForm} />
+        {/* <Route path="/newclass">
           <NewClassForm />
-        </Route>
+        </Route> */}
 
-        <Route path="/logout">
+        <PrivateRoute path='/logout' component={Logout} />
+        {/* <Route path="/logout">
           <Logout />
-        </Route>
+        </Route> */}
 
         <Route path="/register">
           <Register className="registerComponent" />

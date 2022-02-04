@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Class from "./Class";
 import styled from "styled-components";
 import { v4 as uuid } from 'uuid';
 import { useHistory } from "react-router-dom";
+import axios from "axios";
+import { axiosWithAuth } from "./axiosAuth";
 
 const dummyData = [{name:"Early Morning Workout",
 type:"Jog/Cardio",
@@ -56,6 +58,18 @@ const Classes = () => {
 
 
     const { push } = useHistory();
+
+    const[classes, setClasses ] = useState([]);
+
+    useEffect(() => {
+        axiosWithAuth().get('https://anywhere-fitness-008.herokuapp.com/api/classes')
+        .then(resp => {
+            console.log(resp)
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }, [])
 
 
     return (
