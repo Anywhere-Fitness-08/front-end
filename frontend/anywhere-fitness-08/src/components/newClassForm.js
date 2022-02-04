@@ -5,6 +5,8 @@ import * as Yup from 'yup';
 import { axiosWithAuth } from "./axiosAuth";
 import { useHistory } from "react-router-dom";
 
+import { newClassFormSchema as schema } from "./schemas";
+
 const StyledNewClassForm = styled.div`
     display: flex;
     flex-direction: column;
@@ -20,16 +22,6 @@ const StyledNewClassForm = styled.div`
         font-weight: bold;
     }
 `
-
-const schema = Yup.object().shape({
-    name: Yup.string().required('You must enter an event name'),
-    type: Yup.string().required('Must enter a type of event'),
-    start_time: Yup.string().required('Must enter a start time'),
-    duration: Yup.string().required('Must enter a duration for the event'),
-    intensity: Yup.string().required('Must select an intensity'),
-    location: Yup.string().required('Must enter a location'),
-    registered_max: Yup.string().required('Must enter a max number of students')
-  })
 
 const NewClassForm = () => {
 
@@ -76,14 +68,6 @@ const NewClassForm = () => {
         e.preventDefault();
 
         push('/classes');
-
-        // axiosWithAuth().post('https://anywhere-fitness-008.herokuapp.com/api/classes', form)
-        // .then(resp => {
-        //     console.log(resp);
-        // })
-        // .catch(error => {
-        //     console.log(error);
-        // })
     }
 
     const handleChange = e => {
