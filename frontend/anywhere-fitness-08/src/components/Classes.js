@@ -56,32 +56,30 @@ const StyledClasses = styled.div`
 
 const Classes = () => {
 
-
     const { push } = useHistory();
 
-    const[classes, setClasses ] = useState([]);
+    const[classes, setClasses ] = useState(dummyData);
 
-    useEffect(() => {
-        axiosWithAuth().get('https://anywhere-fitness-008.herokuapp.com/api/classes')
-        .then(resp => {
-            console.log(resp)
-        })
-        .catch(error => {
-            console.log(error);
-        })
-    }, [])
-
+    //Endpoint not working for some reason, keep getting a 404 error.
+    // useEffect(() => {
+    //     axiosWithAuth().get('https://anywhere-fitness-008.herokuapp.com/api/classes')
+    //     .then(resp => {
+    //         console.log(resp)
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //     })
+    // }, [])
 
     return (
         <>
-            
         <StyledClasses>
             <h1>Available Classes</h1>
             <h3 onClick={() => {
                 push('/newclass');
             }} >Add a new Class</h3>
             <div className="classList">
-                {dummyData.map(item => {
+                {classes.map(item => {
                     return <Class key={uuid()} item={item} />
                 })}
             </div>

@@ -1,22 +1,9 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import axios from "axios";
 import hero from "../images/hero.svg";
 import { useHistory } from "react-router-dom";
 import * as Yup from 'yup';
-
-//Login Styles go here.
-const StyledLogin = styled.div`
-    border: black solid 1px;
-    width: 30%;
-    padding: 100px 0;
-
-`;
-
-const schema = Yup.object().shape({
-  username: Yup.string().required('Please enter your username.'),
-  password: Yup.string().required('Please enter your password')
-})
+import { loginSchema as schema } from "./schemas";
 
 const Login = () => {
 
@@ -24,13 +11,10 @@ const Login = () => {
 
     const [ disabled, setDisabled ] = useState(true);
     const [errors, setErrors] = useState({ username: '', password: ''})
-    
-
-
-  const [form, setForm] = useState({
-    username: "",
-    password: "",
-  });
+    const [form, setForm] = useState({
+      username: "",
+      password: ""
+    });
 
   const setFormErrors = (name, value) => {
     Yup.reach(schema, name).validate(value)
@@ -61,8 +45,7 @@ const Login = () => {
         push('/classes');
       })
       .catch((error) => {
-        console.log("here comes an error");
-        console.log(error);
+        console.error(error);
       });
   };
 

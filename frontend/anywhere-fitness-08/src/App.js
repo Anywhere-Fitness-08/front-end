@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import NewClassForm from "./components/NewClassForm";
 import Classes from "./components/Classes";
 import PrivateRoute from './components/PrivateRoute';
+import React, { useState } from "react";
 
 const StyledApp = styled.div`
   display: flex;
@@ -18,6 +19,7 @@ const StyledApp = styled.div`
 `;
 
 function App() {
+
   return (
     <div className="app">
       <Header />
