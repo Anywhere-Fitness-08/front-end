@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import axios from "axios";
 import * as Yup from 'yup';
-import { axiosWithAuth } from "./axiosAuth";
 import { useHistory } from "react-router-dom";
-
 import { newClassFormSchema as schema } from "./schemas";
 
 const StyledNewClassForm = styled.div`
